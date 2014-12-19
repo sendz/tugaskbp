@@ -20,5 +20,9 @@
 				return $data;
 			}
 		}
+
+		function single_dokter() {
+			$result = $this->db->query("SELECT * FROM tbl_dokter WHERE kode_kamar = '$get_kode_dokter'");
+		}
 	}
 ?>

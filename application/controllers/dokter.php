@@ -48,5 +48,31 @@
 			$this->db->delete('tbl_dokter', array('kode_dokter'=>$get_kode_dokter));
 			redirect('/dokter','refresh');
 		}
+
+		function edit($get_kode_dokter) {
+			$data['dokter'] = $this->get_dokter->single_dokter($get_kode_dokter);
+			$this->load->view('component_header');
+			$this->load->view('component_navigation');
+			$this->load->view('add_dokter',$data);
+			$this->load->view('component_footer');
+		}
+
+		function update() {
+			$kode_dokter 	= $this->input->post('kode_dokter');
+			$nama_dokter	= $this->input->post('nama_dokter');
+			$alamat			= $this->input->post('alamat');
+			$kontak			= $this->input->post('kontak');
+			$spesialis		= $this->input->post('spesialis');
+			$data 			= array(
+				#'kode_dokter'	=> $kode_dokter,
+				'nama_dokter'	=> $nama_dokter,
+				'alamat'		=> $alamat,
+				'kontak'		=> $kontak,
+				'spesialis'		=> $spesialis
+			);
+			$this->db->where('kode_dokter',$kode_dokter);
+			$this->db->update('tbl_kamar',$data);
+			redirect('/dokter','refresh');
+		}
 	}
 ?>

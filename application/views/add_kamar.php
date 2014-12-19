@@ -4,29 +4,23 @@
 			$action = 'kamar/update';
 			if ($kamar) {
 				foreach ($kamar as $data) {
-					$kode_pasien 	= $data->kode_pasien;
-					$nama 			= $data->nama;
-					$alamat 		= $data->alamat;
-					$tempat_lahir	= $data->tempat_lahir;
-					$tanggal_lahir 	= $data->tanggal_lahir;
-					$jenis_kelamin	= $data->kelamin;
+					$kode_kamar 	= $data->kode_kamar;
+					$nama_kamar		= $data->nama_kamar;
+					$kelas 	 		= $data->kelas;
 				}
 			} 
 		} else {
 			$action 		= 'kamar/submit';
-			$kode_pasien 	= intval(date('YmdGi'));
-			$nama 			= "";
-			$alamat 		= "";
-			$tempat_lahir	= "";
-			$tanggal_lahir 	= "";
-			$jenis_kelamin 	= "";
+			$kode_kamar 	= "RM";
+			$nama_kamar		= "";
+			$kelas 	 		= "";
 		}
 		#date_default_timezone_set('Asia/Jakarta');
-		echo form_open('kamar/submit');
-		echo form_input('kode_kamar',"RM",'class="form-control" placeholder="Kode Kamar"');
-		echo form_input('nama_kamar','','class="form-control" placeholder="Nama"');
+		echo form_open($action);
+		echo form_input('kode_kamar',$kode_kamar,'class="form-control" placeholder="Kode Kamar"');
+		echo form_input('nama_kamar',$nama_kamar,'class="form-control" placeholder="Nama"');
 		$kamar = array(''=>'Kelas','III'=>'III','II'=>'II','I'=>'I','Utama'=>'Utama','VIP'=>'VIP');
-		echo form_dropdown('kelas',$kamar,'','class="form-control" placeholder="Kelas"');
+		echo form_dropdown('kelas',$kamar,$kelas,'class="form-control" placeholder="Kelas"');
 		echo form_submit('submit','Simpan','class="btn btn-default pull-right"');
 		echo form_close();
 	?>
