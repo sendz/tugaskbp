@@ -39,7 +39,7 @@
 								<td>$data->status</td>
 								<td>
 									<div class='btn-group'>
-										<a class='btn btn-primary' type='button' href='#lihat/$data->kode_pasien'>Lihat</a>
+										<a class='btn btn-primary' type='button' href='../../diagnosa/lihat/$data->kode_diagnosa'>Lihat</a>
 										<button class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
 											<span class='caret'></span>
 										</button>

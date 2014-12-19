@@ -24,7 +24,7 @@
 								<td>$data->spesialis</td>
 								<td>
 									<div class='btn-group'>
-										<a class='btn btn-primary' type='button' href='#lihat/$data->kode_dokter'>Lihat</a>
+										<a class='btn btn-primary' type='button' href='#lihat/$data->kode_dokter'>Aksi</a>
 										<button class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
 											<span class='caret'></span>
 										</button>

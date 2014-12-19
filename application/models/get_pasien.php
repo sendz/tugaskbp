@@ -22,7 +22,7 @@
 		}
 
 		function single_pasien($get_kode_pasien) {
-			$result = $this->db->query("SELECT * FROM tbl_pasien WHERE tbl_pasien.kode_pasien = $get_kode_pasien");
+			$result = $this->db->query("SELECT * FROM tbl_pasien WHERE tbl_pasien.kode_pasien = '$get_kode_pasien'");
 			if ($result->num_rows() > 0) {
 				foreach ($result->result() as $row) {
 					$data[] = $row;
@@ -32,7 +32,7 @@
 		}
 
 		function history($get_kode_pasien) {
-			$result = $this->db->query("SELECT * FROM tbl_diagnosa WHERE tbl_diagnosa.kode_pasien = $get_kode_pasien");
+			$result = $this->db->query("SELECT * FROM tbl_diagnosa WHERE tbl_diagnosa.kode_pasien = '$get_kode_pasien'");
 			if ($result->num_rows() > 0) {
 				foreach ($result->result() as $row) {
 					$data[] = $row;

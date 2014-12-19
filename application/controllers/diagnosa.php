@@ -12,6 +12,7 @@
 			$this->load->model('get_pasien');
 			$this->load->model('get_dokter');
 			$this->load->model('get_kamar');
+			$get_kode_diagnosa = $this->uri->segment(2);
 		}
 
 		function index() {
@@ -55,6 +56,15 @@
 			);
 			$this->db->insert('tbl_diagnosa',$data);
 			redirect('/diagnosa','refresh');
+		}
+
+		function lihat($get_kode_diagnosa) {
+			$data['diagnosa'] = $this->get_diagnosa->single_diagnosa($get_kode_diagnosa);
+			#$data['history'] = $this->get_pasien->history($get_kode_pasien);
+			$this->load->view('component_header');
+			$this->load->view('component_navigation');
+			$this->load->view('view_diagnosa', $data);
+			$this->load->view('component_footer');
 		}
 	}
 ?>

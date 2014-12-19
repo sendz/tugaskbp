@@ -17,7 +17,7 @@
 						if ($cekkamar) {
 							foreach ($cekkamar as $cek_kamar) {
 								if ($cek_kamar->kode_kamar == $data->kode_kamar) {
-									$statuskamar = "Isi, " . $cek_kamar->kode_diagnosa;
+									$statuskamar = "Isi, " . "<a href='../../diagnosa/lihat/$cek_kamar->kode_diagnosa'>$cek_kamar->kode_diagnosa</a>";
 								} else {
 									$statuskamar = "Kosong";
 								}
@@ -32,7 +32,7 @@
 								<td>$statuskamar</td>
 								<td>
 									<div class='btn-group'>
-										<a class='btn btn-primary' type='button' href='#lihat/$data->kode_kamar'>Lihat</a>
+										<a class='btn btn-primary' type='button' href='#lihat/$data->kode_kamar'>Aksi</a>
 										<button class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
 											<span class='caret'></span>
 										</button>
