@@ -9,6 +9,7 @@
 		{
 			parent::__construct();
 			$this->load->model('get_dokter');
+			$get_kode_dokter = $this->uri->segment(2);
 		}
 
 		function index() {
@@ -43,5 +44,9 @@
 			redirect('/dokter','refresh');
 		}
 
+		function delete($get_kode_dokter) {
+			$this->db->delete('tbl_dokter', array('kode_dokter'=>$get_kode_dokter));
+			redirect('/dokter','refresh');
+		}
 	}
 ?>

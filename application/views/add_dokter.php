@@ -8,7 +8,7 @@
 		echo form_textarea('alamat','','class="form-control" id="editor" placeholder="Alamat"');
 		echo form_input('kontak','','class="form-control" placeholder="Kontak"');
 		echo form_input('spesialis','','class="form-control" placeholder="Role"');
-		echo form_submit('submit','Simpan','class="btn btn-default"');
+		echo form_submit('submit','Simpan','class="btn btn-default pull-right"');
 		echo form_close();
 	?>
 </div>

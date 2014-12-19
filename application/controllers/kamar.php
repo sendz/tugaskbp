@@ -9,6 +9,7 @@
 		{
 			parent::__construct();
 			$this->load->model('get_kamar');
+			$get_kode_kamar = $this->uri->segment(2);
 		}
 		function index() {
 			$data['kamar'] = $this->get_kamar->kamar();
@@ -37,6 +38,19 @@
 			);
 			$this->db->insert('tbl_kamar', $data);
 			redirect('/kamar','refresh');
+		}
+
+		function delete($get_kode_kamar) {
+			$this->db->delete('tbl_kamar', array('kode_kamar'=>$get_kode_kamar));
+			redirect('/kamar','refresh');
+		}
+
+		function edit ($get_kode_kamar) {
+			$data['kamar'] = $this->get_kamar->get_kode_kamar($get_kode_kamar);
+			$this->load->view('component_header');
+			$this->load->view('component_navigation');
+			$this->load->view('add_kamar',$data);
+			$this->load->view('component_footer');
 		}
 	}
 ?>

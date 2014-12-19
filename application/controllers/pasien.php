@@ -9,7 +9,7 @@
 		{
 			parent::__construct();
 			$this->load->model('get_pasien');
-			$get_kode_pasien = $this->uri->segment(2);
+			$get_kode_pasien 	= $this->uri->segment(2);
 		}
 
 		function index() {
@@ -30,12 +30,12 @@
 		}
 
 		function submit() {
-			$kode_pasien 	= $this->input->post('kode_pasien');
-			$nama			= $this->input->post('nama');
-			$alamat 		= $this->input->post('alamat');
-			$tempat_lahir 	= $this->input->post('tempat_lahir');
-			$tanggal_lahir	= $this->input->post('tanggal_lahir');
-			$kelamin		= $this->input->post('kelamin');
+			$kode_pasien 		= $this->input->post('kode_pasien');
+			$nama				= $this->input->post('nama');
+			$alamat 			= $this->input->post('alamat');
+			$tempat_lahir 		= $this->input->post('tempat_lahir');
+			$tanggal_lahir		= $this->input->post('tanggal_lahir');
+			$kelamin			= $this->input->post('kelamin');
 			$data = array(
 				'kode_pasien'	=> $kode_pasien,
 				'nama'			=> $nama,
@@ -60,6 +60,34 @@
 		function delete($get_kode_pasien) {
 			$this->db->delete('tbl_pasien', array('kode_pasien'=>$get_kode_pasien));
 			$this->db->delete('tbl_diagnosa', array('kode_pasien'=>$get_kode_pasien));
+			redirect('/pasien','refresh');
+		}
+
+		function edit($get_kode_pasien) {
+			$data['pasien'] = $this->get_pasien->single_pasien($get_kode_pasien);
+			$this->load->view('component_header');
+			$this->load->view('component_navigation');
+			$this->load->view('add_pasien', $data);
+			$this->load->view('component_footer');
+		}
+
+		function update() {
+			$kode_pasien 		= $this->input->post('kode_pasien');
+			$nama				= $this->input->post('nama');
+			$alamat 			= $this->input->post('alamat');
+			$tempat_lahir 		= $this->input->post('tempat_lahir');
+			$tanggal_lahir		= $this->input->post('tanggal_lahir');
+			$kelamin			= $this->input->post('kelamin');
+			$data = array(
+				#'kode_pasien'	=> $kode_pasien,
+				'nama'			=> $nama,
+				'alamat'		=> $alamat,
+				'tempat_lahir'	=> $tempat_lahir,
+				'tanggal_lahir'	=> $tanggal_lahir,
+				'kelamin'		=> $kelamin
+			);
+			$this->db->where('kode_pasien',$kode_pasien);
+			$this->db->update('tbl_pasien',$data);
 			redirect('/pasien','refresh');
 		}
 	}

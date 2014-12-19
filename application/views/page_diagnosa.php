@@ -29,7 +29,7 @@
 										</button>
 										<ul class='dropdown-menu' role='menu'>
 											<li><a href='diagnosa/edit/$data->kode_diagnosa'>Edit</a></li>
-											<li><a href='diagnosa/delete/$data->kode_diagnosa'>Hapus</a></li>
+											<li><a href='#' onClick='diagnosaDelete(\"$data->kode_diagnosa\");'>Hapus</a></li>
 										</ul>
 									</div>
 								</td>

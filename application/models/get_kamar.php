@@ -29,5 +29,14 @@
 				return $data;
 			}
 		}
+		function single_kamar($get_kode_kamar) {
+			$result = $this->db->query("SELECT * FROM tbl_kamar WHERE tbl_kamar.kode_kamar = '$get_kode_kamar'");
+			if ($result->num_rows() > 0) {
+				foreach ($result->result() as $row) {
+					$data[] = $row;
+				}
+				return $data;
+			}
+		}
 	}
 ?>

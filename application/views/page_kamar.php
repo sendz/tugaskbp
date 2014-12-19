@@ -1,5 +1,5 @@
 <div class="col-xs-9">
-	<a class="btn btn-primary pull-right" href="<?php echo base_url();?>index.php/tambah/kamar">Tambah</a>
+	<a class="btn btn-primary pull-right" href="<?php echo base_url();?>index.php/kamar/tambah">Tambah</a>
 	<table class="table table-bordered table-hover table-condensed">
 		<thead>
 			<tr>
@@ -38,7 +38,7 @@
 										</button>
 										<ul class='dropdown-menu' role='menu'>
 											<li><a href='#edit/$data->kode_kamar'>Edit</a></li>
-											<li><a href='#delete/$data->kode_kamar'>Hapus</a></li>
+											<li><a href='#' onClick='kamarDelete(\"$data->kode_kamar\");'>Hapus</a></li>
 										</ul>
 									</div>
 								</td>
