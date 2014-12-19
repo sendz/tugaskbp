@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "diagnosa";
 $route['404_override'] = '';
+$route['auth/(:any)'] = "auth/$1";
 
 
 /* End of file routes.php */

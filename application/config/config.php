@@ -16,6 +16,8 @@
 |
 */
 $config['base_url']	= 'http://localhost/kbprs/';
+$config['app_name'] = 'RSJ';
+$config['app_title'] = 'Data Sederhana Rumah Sakit';
 
 /*
 |--------------------------------------------------------------------------

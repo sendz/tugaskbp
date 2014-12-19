@@ -1,9 +1,18 @@
+<?php 
+	session_start(); 
+	if (!$this->ion_auth->logged_in())
+	{
+		redirect('auth/login');
+	}
+?>
 <!doctype HTML>
 <html>
 <head>
-	<title>Data Rumah Sakit</title>
+	<title><?php echo $this->config->item('app_title'); ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>style/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>style/css/bootstrap3-wysihtml5.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>style/css/style.css">
+	<script type="text/javascript" src="<?php echo base_url();?>style/js/modernizr.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>style/js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>style/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>style/js/script.js"></script>
@@ -24,6 +33,6 @@
 	?>
 		<div class="jumbotron">
 			<div class="container">
-				<h1>RSJ</h1>
+				<h1><?php echo $this->config->item('app_name'); ?></h1>
 			</div>
 		</div>

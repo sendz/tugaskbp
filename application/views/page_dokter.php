@@ -29,7 +29,7 @@
 											<span class='caret'></span>
 										</button>
 										<ul class='dropdown-menu' role='menu'>
-											<li><a href='#edit/$data->kode_dokter'>Edit</a></li>
+											<li><a href='dokter/edit/$data->kode_dokter'>Edit</a></li>
 											<li><a href='#' onClick='dokterDelete(\"$data->kode_dokter\");'>Hapus</a></li>
 										</ul>
 									</div>
