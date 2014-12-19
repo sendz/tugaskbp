@@ -21,8 +21,14 @@
 			}
 		}
 
-		function single_dokter() {
-			$result = $this->db->query("SELECT * FROM tbl_dokter WHERE kode_kamar = '$get_kode_dokter'");
+		function single_dokter($get_kode_dokter) {
+			$result = $this->db->query("SELECT * FROM tbl_dokter WHERE kode_dokter = '$get_kode_dokter'");
+			if ($result->num_rows() > 0) {
+				foreach ($result->result() as $row) {
+					$data[] = $row;
+				}
+				return $data;
+			}
 		}
 	}
 ?>
