@@ -26,6 +26,7 @@
 				echo "<tr><th>Tanggal Keluar</th><td>$data_diagnosa->tgl_kluar</td></tr>";
 				echo "<tr><th>Diagnosa</th><td>$data_diagnosa->diagnosa</td></tr>";
 				echo "<tr><th>Status</th><td>$data_diagnosa->status</td></tr>";
+				echo "<tr><th>History Obat</th><td>$data_diagnosa->history_obat</td></tr>";
 			}
 		}
 	?>
